@@ -1,0 +1,30 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "An Electron.js music player application using HTML, CSS, and vanilla JS.",
+  "keywords": [
+    "music-player",
+    "electron",
+    "desktop",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvntahax/music-player.git" 
+  },
+  "license": "MIT",
+  "author": "@mvntahax",
+  "type": "commonjs",
+  "main": "main.js", 
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-packager . --overwrite --all" 
+  },
+  "devDependencies": {
+    "electron": "^38.2.1",
+    "electron-packager": "^17.0.0" 
+  }
+}
