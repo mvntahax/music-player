@@ -1,13 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player | Made by @mvntahax</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Music Player</h1>
-    <script src="script.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Player | Made by @mvntahax</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section class="container">
+            <div>
+                <p>^</p>
+                <h5>Muntaha's Playlist</h5>
+            </div>
+            <div>
+                <img id="coverImage" src="assets/images/doubt-cover.jpeg" alt="Cover">
+            </div>
+            <div>
+                <h2 id="audioName">Doubt</h2>
+                <h5 id="authorName">Twenty One Pilots</h5>
+            </div>
+            <div>
+                <audio id="audioPlayer" controls>
+                    <source src="assets/audios/doubt.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div>
+                <button id="previousButton">Previous</button>
+                <button id="playButton">Play</button>
+                <button id="nextButton">Next</button>
+            </div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+
+    </html>
