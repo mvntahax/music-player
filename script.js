@@ -41,17 +41,17 @@ function loadAudio(index) {
     authorName.textContent = audio.author;
     audioName.textContent = audio.name;
     audioPlayer.src = audio.audio;
-    playButton.textContent = "Play";
+    playButton.className = "fa-solid fa-play";
 }
 
 // Play or pause toggle functionality
 function toggle() {
     if (audioPlayer.paused || audioPlayer.ended) {
         audioPlayer.play();
-        playButton.textContent = "Pause";
+        playButton.className = "fa-solid fa-pause";
     } else {
         audioPlayer.pause();
-        playButton.textContent = "Play";
+        playButton.className = "fa-solid fa-play";
     }
 }
 
@@ -64,7 +64,7 @@ function next() {
     loadAudio(currentIndex);
     
     audioPlayer.play();
-    playButton.textContent = "Pause";
+    playButton.className = "fa-solid fa-pause";
 }
 
 // Previous track function
@@ -76,7 +76,7 @@ function previous() {
     loadAudio(currentIndex);
     
     audioPlayer.play();
-    playButton.textContent = "Pause";
+    playButton.className = "fa-solid fa-pause";
 }
 
 // Event listeners for buttons

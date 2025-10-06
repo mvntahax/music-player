@@ -1,39 +1,62 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Music Player | Made by @mvntahax</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Aesthetic Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <section class="container">
-            <div>
-                <p>^</p>
-                <h5>Muntaha's Playlist</h5>
-            </div>
-            <div>
-                <img id="coverImage" src="assets/images/doubt-cover.jpeg" alt="Cover">
-            </div>
-            <div>
-                <h2 id="audioName">Doubt</h2>
-                <h5 id="authorName">Twenty One Pilots</h5>
-            </div>
-            <div>
-                <audio id="audioPlayer" controls>
-                    <source src="assets/audios/doubt.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div>
-                <button id="previousButton">Previous</button>
-                <button id="playButton">Play</button>
-                <button id="nextButton">Next</button>
-            </div>
-        </section>
-        <script src="script.js"></script>
-    </body>
+<body>
+    <section class="container">
+        <div class="header">
+            <button class="icon-button back-button">
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <h5 class="playlist-title">Muntaha's Playlist</h5>
+            <button class="icon-button menu-button">
+                &#8942;
+            </button>
+        </div>
 
-    </html>
+        <div class="cover">
+            <img id="coverImage" src="assets/images/doubt-cover.jpeg" alt="Album Cover">
+        </div>
+
+        <div class="song-info">
+            <h2 id="audioName">Doubt</h2>
+            <h5 id="authorName">Twenty One Pilots</h5>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar-placeholder"></div>
+            <div class="time-display">
+                <span class="current-time">0:00</span>
+                <span class="duration">3:00</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="previousButton" class="icon-button prev">
+                <i class="fa-solid fa-backward"></i>
+            </button>
+            <button id="playButton" class="play-button">
+                <i class=""></i>
+            </button>
+            <button id="nextButton" class="icon-button next">
+                <i class="fa-solid fa-forward"></i>
+            </button>
+        </div>
+
+        <audio id="audioPlayer">
+            <source src="assets/audios/doubt.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
