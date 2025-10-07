@@ -2,60 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Aesthetic Music Player</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <section class="container">
+    <!-- 🎵 Song list -->
+    <!-- <section id="songsContainer">
+        <ul id="songs"></ul>
+    </section> -->
+
+    <!-- 🎧 Player (hidden by default) -->
+    <section class="player" id="playerSection">
+        <!-- 🧭 Header / Top Bar -->
         <div class="header">
-            <button class="icon-button back-button">
+            <button class="icon-button back-button" id="backButton">
                 <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <h5 class="playlist-title">Muntaha's Playlist</h5>
-            <button class="icon-button menu-button">
-                &#8942;
-            </button>
+            <h5 class="playlist-title">Muntaha’s Playlist</h5>
         </div>
 
+        <!-- 🎵 Album Cover -->
         <div class="cover">
-            <img id="coverImage" src="assets/images/doubt-cover.jpeg" alt="Album Cover">
+            <img id="coverImage" src="assets/images/doubt-cover.jpeg" alt="Album Cover" />
         </div>
 
+        <!-- 🧾 Song Info -->
         <div class="song-info">
             <h2 id="audioName">Doubt</h2>
             <h5 id="authorName">Twenty One Pilots</h5>
         </div>
-        
+
+        <!-- ⏳ Progress Bar -->
         <div class="progress-container">
             <div class="progress-bar-placeholder"></div>
             <div class="time-display">
-                <span class="current-time">0:00</span>
-                <span class="duration">3:00</span>
+                <span id="currentTime">0:00</span>
+                <span id="duration">3:45</span>
             </div>
         </div>
 
+        <!-- 🎧 Player Controls -->
         <div class="controls">
             <button id="previousButton" class="icon-button prev">
                 <i class="fa-solid fa-backward"></i>
             </button>
             <button id="playButton" class="play-button">
-                <i class=""></i>
+                <i class="fa-solid fa-play"></i>
             </button>
             <button id="nextButton" class="icon-button next">
                 <i class="fa-solid fa-forward"></i>
             </button>
         </div>
 
-        <audio id="audioPlayer">
-            <source src="assets/audios/doubt.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-
+        <audio id="audioPlayer" src="assets/audios/doubt.mp3"></audio>
     </section>
+
     <script src="script.js"></script>
 </body>
 
