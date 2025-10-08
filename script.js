@@ -1,95 +1,24 @@
+// Playlist Module
+import { audios } from "./playlist.js";
+
+// DOM Elements
+const songsContainer = document.getElementById("songsContainer");
+const playerSection = document.getElementById("playerSection");
+const songs = document.getElementById("songs");
+const audioPlayer = document.getElementById("audioPlayer");
 const coverImage = document.getElementById("coverImage");
 const authorName = document.getElementById("authorName");
 const audioName = document.getElementById("audioName");
-const audioPlayer = document.getElementById("audioPlayer");
-const songsContainer = document.getElementById("songsContainer");
-const songs = document.getElementById("songs");
-const playerSection = document.getElementById("playerSection");
-const previousButton = document.getElementById("previousButton");
 const playButton = document.getElementById("playButton");
+const previousButton = document.getElementById("previousButton");
 const nextButton = document.getElementById("nextButton");
 const backButton = document.getElementById("backButton");
 const playIcon = playButton.querySelector("i");
-const progressContainer = document.querySelector(".progress-container");
 const progressBar = document.querySelector(".progress-bar-placeholder");
 const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 
-// === Playlist ===
-const audios = [
-  {
-    id: 1,
-    name: "Doubt",
-    author: "Twenty One Pilots",
-    cover: "assets/images/doubt-cover.jpeg",
-    audio: "assets/audios/doubt.mp3",
-  },
-  {
-    id: 2,
-    name: "Cry For Me",
-    author: "The Weekend",
-    cover: "assets/images/cry-for-me-cover.jpeg",
-    audio: "assets/audios/cry-for-me.mp3",
-  },
-  {
-    id: 3,
-    name: "Growing Pain",
-    author: "Tomorrow x Together",
-    cover: "assets/images/growing-pain-cover.jpeg",
-    audio: "assets/audios/growing-pain.mp3",
-  },
-  {
-    id: 4,
-    name: "Sahiba",
-    author: "Aditya Rikhari",
-    cover: "assets/images/sahiba-cover.jpeg",
-    audio: "assets/audios/sahiba.mp3",
-  },
-  {
-    id: 5,
-    name: "Paaro",
-    author: "Aditya Rikhari",
-    cover: "assets/images/paaro-cover.jpeg",
-    audio: "assets/audios/paaro.mp3",
-  },
-  {
-    id: 6,
-    name: "Its ok Im ok",
-    author: "Tate McRae",
-    cover: "assets/images/its-ok-im-ok-cover.png",
-    audio: "assets/audios/its-ok-im-ok.mp3",
-  },
-   {
-    id: 7,
-    name: "Into It",
-    author: "Chase Atlantic",
-    cover: "assets/images/into-it-cover.jpeg",
-    audio: "assets/audios/into-it.mp3",
-  },
-  {
-    id: 8,
-    name: "Kangana Tera Ni",
-    author: "Abeer Arora",
-    cover: "assets/images/kangna-tera-ni-cover.jpg",
-    audio: "assets/audios/kangna-tera-ni.mp3",
-  },
-   {
-    id: 9,
-    name: "Passo Bem Solto",
-    author: "ATLXS",
-    cover: "assets/images/passo-bem-solto-cover.jpeg",
-    audio: "assets/audios/passo-bem-solto.mp3",
-  },
-   {
-    id: 10,
-    name: "Maand",
-    author: "Bayaan, Hasan Raheem, Rovalio",
-    cover: "assets/images/maand-cover.jpeg",
-    audio: "assets/audios/maand.mp3",
-  }
-];
-
-// === Generate Song List ===
+// Generate Song List
 songs.innerHTML = "";
 audios.forEach((audio, index) => {
   const li = document.createElement("li");
@@ -106,11 +35,11 @@ audios.forEach((audio, index) => {
   songs.appendChild(li);
 });
 
-// === State ===
+// State
 let currentIndex = 0;
 const listButtons = document.querySelectorAll(".list-play");
 
-// === Functions ===
+// Loading Audio Function
 function loadAudio(index) {
   const audio = audios[index];
   coverImage.src = audio.cover;
@@ -121,34 +50,34 @@ function loadAudio(index) {
   updateListIcons();
 }
 
+// Toggle Audio Function
 function toggle() {
   if (audioPlayer.paused || audioPlayer.ended) {
     audioPlayer.play();
     playIcon.className = "fa-solid fa-pause";
-    updateListIcons();
   } else {
     audioPlayer.pause();
     playIcon.className = "fa-solid fa-play";
-    updateListIcons();
   }
 }
 
+// Next Audio Function
 function next() {
   currentIndex = (currentIndex + 1) % audios.length;
   loadAudio(currentIndex);
   audioPlayer.play();
   playIcon.className = "fa-solid fa-pause";
-  updateListIcons();
 }
 
+// Previous Audio Function
 function previous() {
   currentIndex = (currentIndex - 1 + audios.length) % audios.length;
   loadAudio(currentIndex);
   audioPlayer.play();
   playIcon.className = "fa-solid fa-pause";
-  updateListIcons();
 }
 
+// Update Icons Function
 function updateListIcons() {
   listButtons.forEach((btn, index) => {
     const icon = btn.querySelector("i");
@@ -160,23 +89,21 @@ function updateListIcons() {
   });
 }
 
-// === Event Listeners ===
+// Event Listeners
 playButton.addEventListener("click", toggle);
 nextButton.addEventListener("click", next);
 previousButton.addEventListener("click", previous);
-
 backButton.addEventListener("click", () => {
   playerSection.classList.add("hidden");
   songsContainer.classList.remove("hidden");
   updateListIcons();
 });
 
-// === Song List Buttons ===
+// Song List Buttons
 listButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const index = parseInt(btn.dataset.index);
 
-    // Toggle same song
     if (index === currentIndex && !audioPlayer.paused) {
       audioPlayer.pause();
       playIcon.className = "fa-solid fa-play";
@@ -187,7 +114,6 @@ listButtons.forEach((btn) => {
       playIcon.className = "fa-solid fa-pause";
     }
 
-    // Hide list, show player
     songsContainer.classList.add("hidden");
     playerSection.classList.remove("hidden");
 
@@ -195,15 +121,14 @@ listButtons.forEach((btn) => {
   });
 });
 
-// Auto-next when finished
+// Auto-next once ended
 audioPlayer.addEventListener("ended", next);
 
-// Create an inner bar for actual progress
+// Progress bar implementation
 const progressFill = document.createElement("div");
 progressFill.classList.add("progress-fill");
 progressBar.appendChild(progressFill);
 
-// Update progress bar as audio plays
 audioPlayer.addEventListener("timeupdate", () => {
   const { currentTime, duration } = audioPlayer;
   if (!duration) return;

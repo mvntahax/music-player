@@ -1,0 +1,72 @@
+export const audios = [
+  {
+    id: 1,
+    name: "Doubt",
+    author: "Twenty One Pilots",
+    cover: "assets/images/doubt-cover.jpeg",
+    audio: "assets/audios/doubt.mp3",
+  },
+  {
+    id: 2,
+    name: "Cry For Me",
+    author: "The Weekend",
+    cover: "assets/images/cry-for-me-cover.jpeg",
+    audio: "assets/audios/cry-for-me.mp3",
+  },
+  {
+    id: 3,
+    name: "Growing Pain",
+    author: "Tomorrow x Together",
+    cover: "assets/images/growing-pain-cover.jpeg",
+    audio: "assets/audios/growing-pain.mp3",
+  },
+  {
+    id: 4,
+    name: "Sahiba",
+    author: "Aditya Rikhari",
+    cover: "assets/images/sahiba-cover.jpeg",
+    audio: "assets/audios/sahiba.mp3",
+  },
+  {
+    id: 5,
+    name: "Paaro",
+    author: "Aditya Rikhari",
+    cover: "assets/images/paaro-cover.jpeg",
+    audio: "assets/audios/paaro.mp3",
+  },
+  {
+    id: 6,
+    name: "Its ok Im ok",
+    author: "Tate McRae",
+    cover: "assets/images/its-ok-im-ok-cover.png",
+    audio: "assets/audios/its-ok-im-ok.mp3",
+  },
+   {
+    id: 7,
+    name: "Into It",
+    author: "Chase Atlantic",
+    cover: "assets/images/into-it-cover.jpeg",
+    audio: "assets/audios/into-it.mp3",
+  },
+  {
+    id: 8,
+    name: "Kangana Tera Ni",
+    author: "Abeer Arora",
+    cover: "assets/images/kangna-tera-ni-cover.jpg",
+    audio: "assets/audios/kangna-tera-ni.mp3",
+  },
+   {
+    id: 9,
+    name: "Passo Bem Solto",
+    author: "ATLXS",
+    cover: "assets/images/passo-bem-solto-cover.jpeg",
+    audio: "assets/audios/passo-bem-solto.mp3",
+  },
+   {
+    id: 10,
+    name: "Maand",
+    author: "Bayaan, Hasan Raheem, Rovalio",
+    cover: "assets/images/maand-cover.jpeg",
+    audio: "assets/audios/maand.mp3",
+  }
+];
